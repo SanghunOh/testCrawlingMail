@@ -5,7 +5,7 @@ def home(request):
 
 def taskstring(request):
     result = 'Rest API stinrg!'
-    return HttpResponse(result)
+    return HttpResponse(result, content_type="text/plain")
 
 def taskxml(request):
     result = '<employees>   \
