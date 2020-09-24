@@ -9,3 +9,4 @@ db.sqlite3
 **/screenshot.png
 **/pictures
 datas/response01.html
+**/__pycache__
