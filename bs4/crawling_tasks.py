@@ -20,7 +20,7 @@ def task_crawling_daum(schedule=60, repeat=60*60*1):
     if res.status_code == 200:
         soup = BeautifulSoup(res.content, 'html.parser')
         links = soup.find_all('a', class_='link_txt')
-        # conn = sqlite3.connect('db.sqlite3')
+        # conn = sqlite3.connect('datas/db.sqlite3')
         # query = 'CREATE TABLE economic (crawling_date TEXT, title TEXT, link TEXT, create_date date)'
         # conn.execute(query)
         # conn.commit()
@@ -28,7 +28,7 @@ def task_crawling_daum(schedule=60, repeat=60*60*1):
 
         date_str = datetime.utcnow().strftime('%Y%m%d')
         time_str = datetime.utcnow().strftime('%Y%m%d%H%M%S%f')
-        with sqlite3.connect("db.sqlite3") as con:
+        with sqlite3.connect("datas/db.sqlite3") as con:
             cur = con.cursor()
             title = ''
             link = ''

@@ -8,7 +8,7 @@ with open(path) as fp:						# shared github
     soup = BeautifulSoup(fp, features='lxml')
     links = soup.select('p[id]')					# 속성 존재 여부 검색
 
-    with sqlite3.connect("db.sqlite3") as con:
+    with sqlite3.connect("datas/db.sqlite3") as con:
         cur = con.cursor()
         title = ''
         link = ''
