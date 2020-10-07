@@ -6,7 +6,7 @@ from pymongo import MongoClient
 path = 'datas/sample03.html'
 db_url = 'mongodb://192.168.0.6:27017/'
 
-with open(path) as fp:						# shared github
+with open(path) as fp:						        # shared github
     soup = BeautifulSoup(fp, features='lxml')
     links = soup.select('p[id]')					# 속성 존재 여부 검색
 
