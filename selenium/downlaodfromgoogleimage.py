@@ -24,7 +24,7 @@ searchurl = 'https://www.google.com/search?q=' + searchword1 + '+' + searchword2
 dirs = 'pictures' 
 maxcount = 1000
 
-chromedriver = '/Users/sanghunoh/Documents/Develop/chromedriver'
+chromedriver = '../chromedriver'
 
 import sys
 if not os.path.exists(dirs):

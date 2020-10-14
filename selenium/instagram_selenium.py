@@ -16,7 +16,7 @@ chrome_options = webdriver.ChromeOptions()
 # chrome_options.add_argument('--disable-dev-shm-usage')
 # chrome_options.add_argument('--headless')
 
-path = "/Users/sanghunoh/Documents/Develop/chromedriver"
+path = "../chromedriver"
 driver = webdriver.Chrome(path, chrome_options=chrome_options)
 loginUrl = 'https://www.instagram.com/accounts/login/?next=%2Fofficial_sunmi%2F&source=desktop_nav'
 driver.get(loginUrl)

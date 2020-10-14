@@ -3,7 +3,7 @@ from selenium.webdriver.chrome.options import Options
 options = Options()
 options.page_load_strategy = 'eager'
 
-path = '/Users/sanghunoh/Documents/Develop/chromedriver'
+path = '../chromedriver'
 driver = webdriver.Chrome(executable_path=path, options=options)
 
 from selenium.webdriver.common.by import By

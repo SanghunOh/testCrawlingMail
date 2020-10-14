@@ -2,7 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 
-path = '/Users/sanghunoh/Documents/Develop/chromedriver'
+path = '../chromedriver'
 driver = webdriver.Chrome(executable_path=path)
 print(type(driver), driver)
 #<class 'selenium.webdriver.chrome.webdriver.WebDriver'> <selenium.webdriver.chrome.webdriver.WebDriver (session="224a1f7cadb8a9d0b2d338ccc40ab4cc")>

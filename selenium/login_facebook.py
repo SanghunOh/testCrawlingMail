@@ -3,7 +3,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 
-path = '/Users/sanghunoh/Documents/Develop/chromedriver'
+path = '../chromedriver'
 driver = webdriver.Chrome(path)
 driver.get("https://www.facebook.com/")
 driver.find_element_by_xpath(
