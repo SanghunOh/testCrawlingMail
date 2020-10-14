@@ -97,11 +97,11 @@ def search_and_download(search_term:str,driver_path:str,target_path='./pictures'
 
 # Main block
 def main():
-    chromedriver = '/Users/sanghunoh/Documents/Develop/chromedriver'
+    chromedriver = '../chromedriver'
     # target_path = '/Users/sanghunoh/Download/images'
     t0 = time.time()
-    search_keys = ['cat', 'dog']
-    number_images = 20
+    search_keys = ['cat', 'dog', 'horse']
+    number_images = 50
     for key in search_keys:
         search_and_download(search_term=key, driver_path=chromedriver, number_images=number_images)
     t1 = time.time()
