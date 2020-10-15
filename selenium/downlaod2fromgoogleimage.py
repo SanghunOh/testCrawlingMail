@@ -78,18 +78,33 @@ def persist_image(folder_path:str,url:str):
     except Exception as e:
         print(f"ERROR - Could not save {url} - {e}")    
 
-def search_and_download(search_term:str,driver_path:str,target_path='./pictures',number_images=5):
+def search_and_download(search_term:str,driver_path:str,target_path='./pictures',number_images=5, number_train=0):
     t0 = time.time()
-    target_folder = os.path.join(target_path,'_'.join(search_term.lower().split(' ')))
+    # for test
+    target_folder = os.path.join(target_path,'test','_'.join(search_term.lower().split(' ')))
 
-    if not os.path.exists(target_folder):
+    if not os.path.exists(target_folder):       # for test
         os.makedirs(target_folder)
+
+    train_folder = str()
+    if number_train > 0 and number_train < number_images : # for train
+        train_folder = os.path.join(target_path,'train','_'.join(search_term.lower().split(' ')))
+        if not os.path.exists(train_folder):       # for test
+            os.makedirs(train_folder)
 
     with webdriver.Chrome(executable_path=driver_path) as wd:
         res = fetch_image_urls(search_term, number_images, wd=wd, sleep_between_interactions=0.5)
         
-    for elem in res:
-        persist_image(target_folder,elem)    
+        count = 0
+        for elem in res:
+            store_folder = str()
+            count = count + 1
+            if train_folder and number_train >= count:
+                store_folder = train_folder
+            else :
+                store_folder = target_folder
+
+            persist_image(store_folder,elem)    
 
     t1 = time.time()
     total_time = t1 - t0
@@ -101,9 +116,10 @@ def main():
     # target_path = '/Users/sanghunoh/Download/images'
     t0 = time.time()
     search_keys = ['cat', 'dog', 'horse']
-    number_images = 50
+    number_images = 100
+    number_train = 20       # number_images > number_train
     for key in search_keys:
-        search_and_download(search_term=key, driver_path=chromedriver, number_images=number_images)
+        search_and_download(search_term=key, driver_path=chromedriver, number_images=number_images, number_train=number_train)
     t1 = time.time()
     total_time = t1 - t0
     print(f'Total time is {str(total_time)} seconds.')
