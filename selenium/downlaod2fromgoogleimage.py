@@ -115,9 +115,9 @@ def main():
     chromedriver = '../chromedriver'
     # target_path = '/Users/sanghunoh/Download/images'
     t0 = time.time()
-    search_keys = ['cat', 'dog', 'horse']
-    number_images = 100
-    number_train = 20       # number_images > number_train
+    search_keys = ['road', 'stop signal', 'traffic light']
+    number_images = 120
+    number_train = 30       # number_images > number_train
     for key in search_keys:
         search_and_download(search_term=key, driver_path=chromedriver, number_images=number_images, number_train=number_train)
     t1 = time.time()
