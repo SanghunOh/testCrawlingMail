@@ -115,8 +115,11 @@ def main():
     chromedriver = '../chromedriver'
     # target_path = '/Users/sanghunoh/Download/images'
     t0 = time.time()
-    search_keys = ['road', 'stop signal', 'traffic light']
-    number_images = 120
+    # human face status
+    # search_keys = ['happy human face', 'sad human face', 'excited human face', 'boring human face',]
+    # self drive car
+    search_keys = ['road', 'stop signal', 'traffic light', 'crossing', 'whole body',]
+    number_images = 135
     number_train = 30       # number_images > number_train
     for key in search_keys:
         search_and_download(search_term=key, driver_path=chromedriver, number_images=number_images, number_train=number_train)
