@@ -118,8 +118,8 @@ def main():
     # human face status
     # search_keys = ['happy human face', 'sad human face', 'excited human face', 'boring human face',]
     # self drive car
-    search_keys = ['road', 'stop signal', 'traffic light', 'crossing', 'whole body',]
-    number_images = 135
+    search_keys = ['road', 'stop signal', 'traffic light', 'road crossing', 'whole body',]
+    number_images = 120
     number_train = 30       # number_images > number_train
     for key in search_keys:
         search_and_download(search_term=key, driver_path=chromedriver, number_images=number_images, number_train=number_train)
