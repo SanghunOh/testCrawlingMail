@@ -96,15 +96,17 @@ def search_and_download(search_term:str,driver_path:str,target_path='./pictures'
         res = fetch_image_urls(search_term, number_images, wd=wd, sleep_between_interactions=0.5)
         
         count = 0
-        for elem in res:
-            store_folder = str()
-            count = count + 1
-            if train_folder and number_train >= count:
-                store_folder = train_folder
-            else :
-                store_folder = target_folder
-
-            persist_image(store_folder,elem)    
+        try:
+            for elem in res:
+                store_folder = str()
+                count = count + 1
+                if train_folder and number_train >= count:
+                    store_folder = train_folder
+                else :
+                    store_folder = target_folder
+                persist_image(store_folder,elem)    
+        except :
+            pass
 
     t1 = time.time()
     total_time = t1 - t0
@@ -118,9 +120,9 @@ def main():
     # human face status
     # search_keys = ['happy human face', 'sad human face', 'excited human face', 'boring human face',]
     # self drive car
-    search_keys = ['road', 'stop signal', 'traffic light', 'road crossing', 'whole body',]
-    number_images = 120
-    number_train = 30       # number_images > number_train
+    search_keys = ['stop signal', 'traffic light', 'road crossing', 'whole body',]
+    number_images = 60
+    number_train = 10       # number_images > number_train
     for key in search_keys:
         search_and_download(search_term=key, driver_path=chromedriver, number_images=number_images, number_train=number_train)
     t1 = time.time()

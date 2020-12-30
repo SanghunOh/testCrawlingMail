@@ -10,3 +10,4 @@ db.sqlite3
 **/pictures
 datas/response01.html
 **/__pycache__
+chromedriver
